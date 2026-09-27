@@ -1,70 +1,267 @@
-# Getting Started with Create React App
+💰 Controle Financeiro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicação web desenvolvida em React para gerenciamento simples de receitas e despesas. O projeto permite cadastrar entradas e saídas, visualizar um resumo financeiro e excluir transações. Os dados são armazenados no localStorage do navegador, permanecendo disponíveis mesmo após recarregar a página.
 
-## Available Scripts
+📸 Funcionalidades
 
-In the project directory, you can run:
+➕ Cadastro de entradas
 
-### `npm start`
+➖ Cadastro de saídas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+💰 Cálculo automático de:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Total de entradas
 
-### `npm test`
+Total de saídas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Saldo total
 
-### `npm run build`
+🗑️ Exclusão de transações
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+💾 Persistência dos dados utilizando localStorage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+📋 Listagem das transações cadastradas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+📱 Layout responsivo
 
-### `npm run eject`
+🎨 Interface estilizada com styled-components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🔼🔽 Identificação visual de entradas e saídas com ícones
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🛠️ Tecnologias utilizadas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+React 19
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+JavaScript
 
-## Learn More
+Styled Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+React Icons
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+HTML5
 
-### Code Splitting
+CSS3
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+LocalStorage
 
-### Analyzing the Bundle Size
+Create React App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+📂 Estrutura do projeto
 
-### Making a Progressive Web App
+src/
+├── components/
+│   ├── Form/
+│   │   ├── index.js
+│   │   └── styles.js
+│   │
+│   ├── Grid/
+│   │   ├── index.js
+│   │   └── styles.js
+│   │
+│   ├── GridItem/
+│   │   ├── index.js
+│   │   └── styles.js
+│   │
+│   ├── Header/
+│   │   ├── index.js
+│   │   └── styles.js
+│   │
+│   ├── Resume/
+│   │   ├── index.js
+│   │   └── styles.js
+│   │
+│   └── ResumeItem/
+│       ├── index.js
+│       └── styles.js
+│
+├── styles/
+│   └── global.js
+│
+├── App.js
+└── index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+⚙️ Como executar o projeto
 
-### Advanced Configuration
+1. Clone o repositório
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+git clone <URL_DO_SEU_REPOSITORIO>
 
-### Deployment
+2. Entre na pasta do projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+cd Controle-Financeiro
 
-### `npm run build` fails to minify
+3. Instale as dependências
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+npm install
+
+4. Inicie a aplicação
+
+npm start
+
+A aplicação será aberta no navegador, normalmente em:
+
+http://localhost:3000
+
+🧾 Como utilizar
+
+Adicionar uma entrada
+
+Digite uma descrição.
+
+Informe o valor.
+
+Selecione Entrada.
+
+Clique em ADICIONAR.
+
+Exemplo:
+
+Descrição: Salário
+Valor: 1500
+Tipo: Entrada
+
+Adicionar uma saída
+
+Digite uma descrição.
+
+Informe o valor.
+
+Selecione Saída.
+
+Clique em ADICIONAR.
+
+Exemplo:
+
+Descrição: Aluguel
+Valor: 800
+Tipo: Saída
+
+O sistema identifica uma saída através da propriedade:
+
+expense: true
+
+Enquanto uma entrada utiliza:
+
+expense: false
+
+📊 Resumo financeiro
+
+O componente Resume apresenta três informações principais:
+
+Entradas: soma de todas as transações classificadas como entrada.
+
+Saídas: soma de todas as transações classificadas como saída.
+
+Total: diferença entre entradas e saídas.
+
+A lógica principal está no App.js, utilizando filter, map e reduce para calcular os valores.
+
+💾 Armazenamento
+
+As transações são armazenadas no localStorage com a chave:
+
+transactions
+
+Exemplo de estrutura armazenada:
+
+[
+  {
+    id: 123,
+    desc: "Salário",
+    amount: "1500",
+    expense: false
+  },
+  {
+    id: 456,
+    desc: "Aluguel",
+    amount: "800",
+    expense: true
+  }
+]
+
+Isso permite que os dados continuem disponíveis quando a página for recarregada.
+
+🗑️ Exclusão de transações
+
+Cada transação possui um ícone de lixeira. Ao clicar nele, a transação é removida da lista e o localStorage é atualizado.
+
+🎨 Estilização
+
+A aplicação utiliza Styled Components, mantendo os estilos organizados junto aos componentes.
+
+Exemplo:
+
+import { styled } from "styled-components";
+
+export const Container = styled.div`
+  padding: 10px;
+  border-radius: 5px;
+`;
+
+📦 Dependências principais
+
+{
+  "react": "^19.3.0",
+  "react-dom": "^19.3.0",
+  "react-icons": "^5.7.0",
+  "styled-components": "^6.5.3",
+  "react-scripts": "5.0.1"
+}
+
+🧠 Conceitos praticados
+
+Este projeto foi desenvolvido para praticar conceitos importantes do React, como:
+
+Componentização
+
+Props
+
+useState
+
+useEffect
+
+Eventos e formulários
+
+Renderização de listas com map
+
+Condicionais no JSX
+
+Comunicação entre componentes
+
+Manipulação de arrays
+
+Persistência com localStorage
+
+Styled Components
+
+Organização de projetos React
+
+🚀 Possíveis melhorias futuras
+
+Algumas funcionalidades que podem ser adicionadas futuramente:
+
+Edição de transações
+
+Filtro por entrada e saída
+
+Busca por descrição
+
+Categorias de gastos
+
+Formatação de valores como moeda brasileira
+
+Gráficos financeiros
+
+Filtro por período
+
+Confirmação antes de excluir uma transação
+
+Geração de relatórios
+
+Tema claro/escuro
+
+👨‍💻 Autor
+
+Lauro Viana
+
+Projeto desenvolvido como prática de desenvolvimento web com React.
